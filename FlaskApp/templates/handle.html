@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+{% include "head.html" %}
+ 
+<body>
+<h3><span>User mentions</span></h3>
+
+<table>
+{% for tweet in tweets_list %}
+   <tr>
+        <td> {{ tweet }} </td>
+   </tr>
+{% endfor %}
+</table
+
+</body>
+ 
+</html>

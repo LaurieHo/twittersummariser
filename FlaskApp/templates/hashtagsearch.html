@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "head.html" %}
+ 
+<body>
+<h2><span>Twitter Summariser</span></h2> 
+<br>
+<form action="/hashtag" method="post">
+Hashtag 1: <input type="text" name="hashtag1" placeholder="first hashtag"><br>
+<br>
+Hashtag 2: <input type="text" name="hashtag2" placeholder="second hashtag"><br>
+<br>
+Sort by: 
+<select name="result_type_select">
+ <option value="recent">Recent</option>
+ <option value="popular">Popular</option>
+ <option value="mixed">Mixed</option>
+</select>
+<br>
+<br>
+Search for tweets up until:
+<select name="until_select">
+ <option value="0">today</option>
+ <option value="1">1 day ago</option>
+ <option value="2">2 days ago</option>
+ <option value="3">3 days ago</option>
+ <option value="4">4 days ago</option>
+ <option value="5">5 days ago</option>
+ <option value="6">6 days ago</option>
+ <option value="7">7 days ago</option> 
+</select>
+<br>
+<br>
+<label><input type="checkbox" name="lang_restrict_checkbox" value="lang_restrict_checkbox" class="small">Restrict language to English</label>
+<br>
+<br>
+
+<label><input type="checkbox" name="safe_filter_checkbox" value="safe_filter_checkbox" class="small">Filter potentially offensive results</label>
+<br>
+<br>
+
+<label><input type="checkbox" name="exclude_retweets_checkbox" value="exclude_retweets_checkbox" class="small">Exclude retweets</label>
+<br>
+<br>
+<label><input type="checkbox" name="exclude_replies_checkbox" value="exclude_replies_checkbox" class="small">Exclude replies</label>
+<br>
+<br>
+<input type="submit" value="Submit">
+</form> 
+
+</body>
+ 
+</html>
