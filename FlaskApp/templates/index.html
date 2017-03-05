@@ -4,20 +4,25 @@
 {% include "head.html" %}
  
 <body>
-<h2><span>Twitter Summariser</span></h2> 
-<br>
-<form action="/hashtagsearch">
-<br>
-<input type="submit" value="Search by hashtag">
-<br>
-</form> 
+{% include "header.html" %}
+	<div class="wrapper">
+		<section>
+			<h3 style="clear:both">Home</h3>
+			<br>
+			<form action="/hashtagsearch">
+			<br>
+			<input type="submit" value="Search by hashtag">
+			<br>
+			</form> 
 
 
-<form action="/handlesearch">
-<br>
-<input type="submit" value="Search by user handle">
-<br>
-</form> 
+			<form action="/handlesearch">
+			<br>
+			<input type="submit" value="Search by user handle">
+			<br>
+			</form> 
+		</section>
+	</div>
 
 </body>
  

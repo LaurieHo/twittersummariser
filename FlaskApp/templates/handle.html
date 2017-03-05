@@ -4,16 +4,127 @@
 {% include "head.html" %}
  
 <body>
-<h3><span>User mentions</span></h3>
+{% include "header.html" %}
+<div class="wrapper">
+<section>
+<h4><span>We found {{tweet_count}} tweets mentioning the user {{handle}}</span></h4>
 
-<table>
-{% for tweet in tweets_list %}
+<br>
+<br>
+<h3 style="clear:both">Tokens and the frequency with which they occur</h3>
+<br>
+
+<table rules='all'>
+<tr>
+<th><span>Token</span></th>
+<th><span>Frequency</span></th>
+</tr>
+
+{% for token, frequency in most_common_non_twitter %}
    <tr>
-        <td> {{ tweet }} </td>
+        <td> {{token}} </td> <td> {{frequency}} </td>
    </tr>
 {% endfor %}
-</table
+</table>
 
+<table rules='all'>
+
+<tr>
+<th><span>Hashtag</span></th>
+<th><span>Frequency</span></th>
+</tr>
+
+{% for h, frequency in all_hashtags %}
+   <tr>
+        <td> <a href="{{url_for('hashtag', requested_hashtags=[h], result_type_select='mixed', safe_filter_checkbox='True', lang_restrict_checkbox='True', exclude_retweets_checkbox='True', exclude_replies_checkbox='True', until_select='0')}}"> {{h}} </a> </td> <td> {{frequency}} </td>
+   </tr>
+{% endfor %}
+</table>
+
+
+<table rules='all'>
+
+<tr>
+<th><span>Username</span></th>
+<th><span>Frequency</span></th>
+</tr>
+
+{% for username, frequency in all_users %}
+   <tr>
+        <td> <a href="{{url_for('handle', handle=username, result_type_select='mixed', safe_filter_checkbox='True', lang_restrict_checkbox='True', exclude_retweets_checkbox='True', exclude_replies_checkbox='True', until_select='0')}}"> {{username}} </td> <td> {{frequency}} </td>
+   </tr>
+{% endfor %}
+</table>
+
+<br>
+<br>
+<h3 style="clear:both">Bigrams, trigrams and commonly co-occurring terms</h3>
+<br>
+
+<table rules='all'>
+<tr>
+<th><span>Word Phrase</span></th>
+<th><span>Frequency</span></th>
+</tr>
+{% for tuple, frequency in common_bigrams %}
+<tr><td>{{tuple[0]}} {{tuple[1]}}</td><td>{{frequency}}</td></tr>
+{% endfor %}
+
+{% for tuple, frequency in common_trigrams %}
+<tr><td>{{tuple[0]}} {{tuple[1]}} {{tuple[2]}}</td><td>{{frequency}}</td></tr>
+{% endfor %}
+
+</table>
+
+
+<table rules='all'>
+
+<tr>
+<th><span>Co-occurring Terms</span></th>
+<th><span>Frequency</span></th>
+</tr>
+
+{% for tuple, frequency in co_terms_max %}
+   <tr>
+        <td> {{tuple[0]}}, {{tuple[1]}} </td> <td> {{frequency}} </td>
+   </tr>
+{% endfor %}
+</table>
+
+<br>
+<br>
+<h3 style="clear:both">Word cloud of all words used</h3>
+<br>
+<img src="{{url_for('static', filename='words.png')}}" style="height:400px;width:800px">
+
+<br>
+<br>
+<h3 style="clear:both">Map of users' locations</h3>
+<br>
+<div id="map"></div>
+<script src="{{url_for('static', filename='map.js')}}"></script>
+
+<br>
+<br>
+<h3 style="clear:both">All tweets</h3>
+<br>
+<table rules='all' style="clear:both">
+<tr>
+<th><span>Author</span></th>
+<th><span>Tweet</span></th>
+</tr>
+{% for status in statuses %}
+   <tr>
+	<td> <a href="https://twitter.com/{{status['user']['screen_name']}}">{{ status['user']['screen_name'] }}</a> </td>
+        <td> {{ status["full_text"] }} </td>
+   </tr>
+{% endfor %}
+</table>
+<br>
+<br>
+
+</section>
+</div>
 </body>
  
 </html>

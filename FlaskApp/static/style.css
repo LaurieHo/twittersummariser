@@ -1,11 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Oxygen');
-@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 body {
-	width: 80%;
-	margin: 0 auto;
+	margin: 0;
 	padding: 0;
-	font: 16px "Open Sans", sans-serif;
+	font: 16px "Noto Sans", sans-serif;
 	-webkit-font-smoothing: antialiased !important;
 	color: #4a4a66;
 	text-align:center
@@ -106,7 +103,7 @@ img.right {
 input, textarea {
 	padding: 5px;
 	border: 1px solid #d1d1de;
-	font: 16px "Open Sans", serif;
+	font: 16px "Noto Sans", sans-serif;
 	-webkit-transition: all 0.3s ease-in;
 	-webkit-transition-delay: 0s;
 	-moz-transition: all 0.3s ease-in 0s;
@@ -120,9 +117,7 @@ input:focus, textarea:focus {
 	border: 1px solid #4a4a66;
 	outline: none
 }
-input {
-	width: 70%;
-	max-width: 200px
+
 }
 input.small {
 	width: 30%;
@@ -135,6 +130,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	color: #4099FF
 }
+
 textarea {
 	resize: vertical;
 	width: 100%;
@@ -143,7 +139,7 @@ textarea {
 textarea:focus {
 	height: 300px
 }
-.red {
+.blue {
 	color: #4099FF
 }
 .center {
@@ -211,56 +207,19 @@ textarea:focus {
 	width: 99%;
 	text-align: center
 }
-.form tr > td .g-recaptcha {
-	margin: 0 auto;
-	width: 100%;
-	max-width: 304px
-}
-@media only screen and (max-width: 480px) {
-	.form tr > td .g-recaptcha {
-		transform: scale(0.77);
-		transform-origin: 0 0;
-		-webkit-transform: scale(0.77);
-		-webkit-transform-origin: 0 0
-	}
-}
-.fb-page.news {
-	float: right;
-	margin-left: 20px;
-	width: 60%;
-	max-width: 500px
-}
-@media only screen and (max-width: 480px) {
-	.fb-page.news {
-		float: none;
-		margin-left: 0;
-		width: 100%;
-		height: 180px
-	}
-}
-.fb-page.contact {
-	float: right;
-	width: 40%;
-	height: 90px
-}
-@media only screen and (max-width: 480px) {
-	.fb-page.contact {
-		float: none;
-		width: 100%;
-		height: 90px
-	}
-}
+
+
 .wrapper {
 	position: relative;
 	margin: 0 auto;
 	width: 94%;
-	max-width: 960px
+	max-width: 960px !important
 }
 header {
 	position: fixed;
-	padding: 135px 0 15px;
+	padding: 15px 0 15px;
 	width: 100%;
-	background: #fff url(../images/logo-200.jpg) no-repeat center 15px;
+	background: #fff;
 	text-align: center;
 	z-index: 10;
 	-webkit-box-shadow: #79799d 0 0 20px;
@@ -310,6 +269,7 @@ header nav > a {
 	-o-transition: all 0.2s ease-in 0s;
 	transition: all 0.2s ease-in 0s
 }
+
 header nav > a:nth-of-type(10n+1) {
 	clear: left
 }
@@ -369,53 +329,9 @@ footer a:hover {
 	border-bottom: 1px solid #4a4a66
 }
 
-.dropdown.first {
-	border-top: 1.5px solid #4A4A66 !important;
+#map {
+	height:400px;
+	width:800px;
+	clear:both
 }
 
-.dropdown:hover {
-	background-color: #f4f4f4;
-}
-
-.dropdown-link {
-
-	font-size: 14px;
-	color: #4a4a66;
-}
-
-.dropdown-link:hover {
-
-	color: #4099FF;
-	text-decoration: none;
-	border-bottom: none;
-}
-
-.dropdown {
-	position: relative;
-	width: 100%;
-	background: white;
-	border-style: solid;
-	border-width: 1.5px;
-	border-color: #4A4A66;
-	border-top: none;
-	text-align: center;
-	left: 0;
-	right: 0;
-	list-style: none;
-	padding: 3px 5px 3px 5px;
-}
-
-.sub-menu {
-	position: absolute;
-	text-align: center;
-	width: 6.5%;
-	display: none;
-}
-
-a.anchor {
-	display: block;
-	position: relative;
-	top: -110px;
-	visibility: hidden;
-	z-index: -1;
-}

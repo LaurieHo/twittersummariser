@@ -4,12 +4,14 @@
 {% include "head.html" %}
  
 <body>
-<h2><span>Twitter Summariser</span></h2> 
+{% include "header.html" %}
+
+<div class="wrapper">
+<section> 
+<h3 style="clear:both">Search for a hashtag</h3>
 <br>
 <form action="/hashtag" method="post">
-Hashtag 1: <input type="text" name="hashtag1" placeholder="first hashtag"><br>
-<br>
-Hashtag 2: <input type="text" name="hashtag2" placeholder="second hashtag"><br>
+Hashtags to search for: <input type="text" name="requested_hashtags" placeholder="e.g. news, politics"><br>
 <br>
 Sort by: 
 <select name="result_type_select">
@@ -48,6 +50,9 @@ Search for tweets up until:
 <br>
 <input type="submit" value="Submit">
 </form> 
+
+</section>
+</div>
 
 </body>
  
